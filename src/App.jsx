@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import LandingPage from './pages/LandingPage';
 import LoveLetterPage from './pages/LoveLetterPage';
-import MemoryGallery from './pages/MemoryGallery';
 import Memories from './pages/Memories';
 import ProposalPage from './pages/ProposalPage';
 import './App.css';
@@ -14,10 +13,18 @@ function App() {
   const [currentPage, setCurrentPage] = useState('landing');
 
   const navigateToNext = () => {
-    const pageOrder = ['landing', 'loveLetter', 'memories', 'memoryGallery', 'proposal'];
-    const currentIndex = pageOrder.indexOf(currentPage);
-    if (currentIndex < pageOrder.length - 1) {
-      setCurrentPage(pageOrder[currentIndex + 1]);
+    // Explicit page navigation mapping to ensure correct flow:
+    // Landing → Love Letter → Memories → Proposal
+    const nextPageMap = {
+      'landing': 'loveLetter',
+      'loveLetter': 'memories',
+      'memories': 'proposal',
+      'proposal': null // End of flow
+    };
+
+    const nextPage = nextPageMap[currentPage];
+    if (nextPage) {
+      setCurrentPage(nextPage);
     }
   };
 
@@ -26,7 +33,6 @@ function App() {
       {currentPage === 'landing' && <LandingPage onNext={navigateToNext} />}
       {currentPage === 'loveLetter' && <LoveLetterPage onNext={navigateToNext} />}
       {currentPage === 'memories' && <Memories onNext={navigateToNext} />}
-      {currentPage === 'memoryGallery' && <MemoryGallery onNext={navigateToNext} />}
       {currentPage === 'proposal' && <ProposalPage />}
     </div>
   );

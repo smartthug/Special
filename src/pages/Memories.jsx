@@ -92,7 +92,7 @@ const Memories = ({ onNext }) => {
             transition={{ delay: 0.8 }}
           >
             <Button onClick={onNext} variant="primary">
-              Continue 💝
+            Can I ask you something? 🌸
             </Button>
           </motion.div>
         )}

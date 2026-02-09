@@ -18,11 +18,31 @@ const MemoryCard = ({ image, caption, index = 0 }) => {
       <div className="relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02]">
         {/* Image container */}
         <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-pink-50 to-beige-50">
-          <img
-            src={image}
-            alt={caption}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src={image}
+              alt={caption}
+              className={`transition-transform duration-700 ${index === 2 ? 'w-[133.33%] h-[133.33%] object-cover' : 'w-full h-full object-cover'}`}
+              style={index === 2 ? { 
+                transform: 'rotate(-90deg) translateY(-7px)',
+                transformOrigin: 'center center'
+              } : {}}
+              onMouseEnter={(e) => {
+                if (index === 2) {
+                  e.target.style.transform = 'rotate(-90deg) translateY(20px) scale(1.05)';
+                } else {
+                  e.target.style.transform = 'scale(1.05)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (index === 2) {
+                  e.target.style.transform = 'rotate(-90deg) translateY(-7px) scale(1)';
+                } else {
+                  e.target.style.transform = 'scale(1)';
+                }
+              }}
+            />
+          </div>
           
           {/* Subtle heart overlay on hover - very light */}
           <motion.div
