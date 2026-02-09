@@ -44,12 +44,12 @@ A beautiful, romantic **Valentine's Day themed web application** built with **Re
 
 2. Install dependencies:
 
-``npm install``
+```npm install```
 
 
 3. Run the development server:
 
-``npm run dev``
+```npm run dev```
 
 
 4. Open your browser and visit:
@@ -57,6 +57,8 @@ A beautiful, romantic **Valentine's Day themed web application** built with **Re
 ``http://localhost:5173``
 
 📁 Project Structure
+
+```text
 valentines-app/
 ├── src/
 │   ├── components/
@@ -77,7 +79,7 @@ valentines-app/
 ├── index.html
 ├── tailwind.config.js
 ├── postcss.config.js
-└── package.json
+└── package.json```
 
 🎨 Design Highlights
 
