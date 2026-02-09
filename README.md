@@ -79,7 +79,7 @@ valentines-app/
 ├── index.html
 ├── tailwind.config.js
 ├── postcss.config.js
-└── package.json```
+└── package.json text```
 
 🎨 Design Highlights
 
